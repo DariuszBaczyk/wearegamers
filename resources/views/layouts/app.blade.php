@@ -30,11 +30,23 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+                <!-- SEARCH FORM-->
+                <form method="GET" action="{{ url('/search') }}" class="navbar-form navbar-left">
+                        <div class="input-group">
+                            <input type="text" name="q" class="form-control" placeholder="Szukaj...">
+                            <span class="input-group-btn">
+                                <button type="submit" class="btn btn-default">Szukaj</button>
+                            </span>
+                        </div>
+                    </form>
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
 
                     </ul>
+
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
