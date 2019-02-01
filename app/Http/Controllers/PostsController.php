@@ -10,7 +10,7 @@ class PostsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('post_permission', ['except' => ['store', 'show']]);
+        //$this->middleware('post_permission', ['except' => ['store', 'show']]);
     }
 
     /**

@@ -27,11 +27,11 @@ class Post extends Model
 
     public function comments()
     {
-        if (is_admin()) {
+        /*if (is_admin()) {
             return $this->hasMany('App\Comment')->withTrashed();
-        } else {
+        } else {*/
             return $this->hasMany('App\Comment');
-        }
+        //}
     }
 
     public function likes()
