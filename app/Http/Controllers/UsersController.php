@@ -67,7 +67,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
+        /*$this->validate($request, [
             'name' => 'required|min:3',
             'email' => [
                 'required',
@@ -79,12 +79,17 @@ class UsersController extends Controller
             'email' => 'Adres e-mail jest niepoprawny',
             'unique' => 'Inny użytkownik ma już taki adres e-mail',
             'min' => 'Pole musi mieć minimum :min',
-        ]);
+        ]);*/
 
         $user = User::find($id);
         $user->name = $request->name;
-        $user->email = $request->email;
+        //$user->email = $request->email;
         $user->sex = $request->sex;
+        $user->first_name = $request->first_name;
+        $user->surname = $request->surname;
+        $user->about_me = $request->about_me;
+        $user->birthday = $request->birthday;
+        $user->phone = $request->phone;
 
         if ($request->file('avatar')) {
             $user_avatar_path = 'public/users/' . $id . '/avatars';

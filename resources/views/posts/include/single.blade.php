@@ -9,5 +9,13 @@
         {{ method_field('DELETE') }}
         	<button type="submit">Usuń post</button>
         </form>
+
+		@if (Auth::check())
+			@include('comments.create')
+		@endif
+
+		@foreach ($post->comments as $comment)
+			@include('comments.include.single')
+		@endforeach
     </div>
 </div>

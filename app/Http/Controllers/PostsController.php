@@ -44,11 +44,11 @@ class PostsController extends Controller
      */
     public function show($id)
     {
-        if (is_admin()) {
+        /*if (is_admin()) {
             $post = Post::withTrashed()->where('id', $id)->first();
         } else {
             $post = Post::findOrFail($id);
-        }
+        }*/
 
         return view('posts.show', compact('post'));
     }

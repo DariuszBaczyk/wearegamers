@@ -8,7 +8,15 @@
 
 			<div>{{ $user->email }}</div>
 
+			<div>
+				@if ($user->first_name != null) {{ $user->first_name }} @endif
+				@if ($user->surname != null) {{ $user->surname }} @endif
+			</div>
+
 			<div>{{ $user->about_me }}</div>
+
+			<div><a href="{{ url('/users/' . $user->id . '/friends') }}">Znajomi</a>{{ $user->friends()->count() }}</div>
+		
 
 		</div>		
 	</div>

@@ -29,6 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('phone')->nullable();
             $table->string('google_id')->nullable();
             $table->string('avatar')->nullable();
+            $table->string('steam_id')->nullable();
             $table->softDeletes();
             $table->rememberToken()->nullable();
             $table->timestamps();
