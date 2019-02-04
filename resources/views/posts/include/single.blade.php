@@ -10,6 +10,11 @@
         	<button type="submit">Usuń post</button>
         </form>
 
+		<div id="post_id{{ $post->id }}" style="margin-top: 10px;">
+			{{ $post->content }}
+		</div>
+        @include('posts.include.likes')
+
 		@if (Auth::check())
 			@include('comments.create')
 		@endif
