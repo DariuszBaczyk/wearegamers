@@ -3,9 +3,7 @@
 namespace App;
 
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class User extends Authenticatable
 {
@@ -17,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'role_id', 'sex',
     ];
 
     /**
@@ -29,35 +27,36 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    public function friendsOfOther()
+    {
+        return $this->belongsToMany('App\User', 'friends', 'user_id', 'friend_id')
+            ->wherePivot('accepted', 1);
+    }
+
+    public function friendsOfMine()
+    {
+        return $this->belongsToMany('App\User', 'friends', 'friend_id', 'user_id')
+            ->wherePivot('accepted', 1);
+    }
+
+    public function friends()
+    {
+        return $this->friendsOfOther->merge($this->friendsOfMine);
+    }
+
     public function posts()
     {
         return $this->hasMany('App\Post')->orderBy('created_at', 'desc');
     }
 
-    public function roles()
+    public function role()
     {
-        return $this->belongsToMany(Role::class);
+        return $this->belongsTo('App\Role');
     }
 
-    public function authorizeRoles($roles)
+    public function likes()
     {
-        if (is_array($roles)){
-            return $this->hasAnyRole($roles) || abort(401, 'This action is unauthorized');
-        }
-        return $this->hasRole($roles) || abort(401, 'This action is unauthorized');
+        return $this->hasMany('App\Like');
     }
-
-    public function hasAnyRole($roles)
-    {
-        return null !== $this->roles()->whereIn('name', $roles)->first();
-    }
-
-    public function hasRole($role)
-    {
-        return null !== $this->roles()->where('name', $role)->first();
-    }
-    
-    use SoftDeletes;
-    protected $dates = ['deleted_at'];
 
 }

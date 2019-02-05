@@ -1,7 +1,7 @@
 <div>
-	<div>{{ $post->user->name }}</div>
+	<div><a href="{{ url('/users/' . $post->user->id) }}">{{ $post->user->name }}</a></div>
 	<div>{{ $post->content }}</div>
-	<div>{{ $post->created_at }}</div>
+	<div><a href="{{ url('/posts/' . $post->id) }}"> {{ $post->created_at }} </a></div>
 	<div><a href="{{ url('/posts/' . $post->id . '/edit') }}">Edytuj</a></div>
 	<div>
 		<form method="POST" action="{{ url('/posts/' . $post->id ) }}">
@@ -10,9 +10,7 @@
         	<button type="submit">Usuń post</button>
         </form>
 
-		<div id="post_id{{ $post->id }}" style="margin-top: 10px;">
-			{{ $post->content }}
-		</div>
+		
         @include('posts.include.likes')
 
 		@if (Auth::check())

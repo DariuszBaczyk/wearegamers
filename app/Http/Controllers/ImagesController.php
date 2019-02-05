@@ -12,7 +12,7 @@ class ImagesController extends Controller
 	{
 		$user = User::findOrFail($id);
 
-		if (is_null($user->avatar)) {
+		/*if (is_null($user->avatar)) {
 			if ($user->sex == 'm')
 			$img = Image::make('')->fit($size)->response('jpg', 90);
 			else
@@ -24,6 +24,6 @@ class ImagesController extends Controller
 			$img = Image::make($avatar_path)->fit($size)->response('jpg', 90);
 		}
 
-		return $img;
+		return $img;*/
 	}
 }

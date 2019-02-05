@@ -16,7 +16,7 @@
 			<div>{{ $user->about_me }}</div>
 
 			 @if (Auth::check() && $user->id !== Auth::id())		
-			   @if ( ! friendship($user->id)->exists && ! has_friend_invitation($user->id))
+			     @if ( ! friendship($user->id)->exists && ! has_friend_invitation($user->id))
 
                     <form method="POST" action="{{ url('/friends/' . $user->id ) }}">
                         {{ csrf_field() }}
@@ -46,6 +46,8 @@
                 @endif
 			 
 			 @endif
+
+             <p><a href="{{ url('/users/' . $user->id . '/friends') }}">Znajomi</a> <span class="label label-default">{{ $user->friends()->count() }}</span></p>
 		</div>		
 	</div>
 </div>

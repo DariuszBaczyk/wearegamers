@@ -5,7 +5,7 @@
     <div class="row">
         <div class="col-md-10">
             <div class="panel panel-default">
-                <div class="panel-heading">Wyniki wyszukiwania użytkowników</div>
+                <div class="panel-heading">Wyniki wyszukiwania grup</div>
                 <div class="panel-body">
 
                     @if($search_results->count() === 0)
@@ -13,11 +13,11 @@
                     @else
                     
                         <div class="row">
-                            @foreach ($search_results as $user)
+                            @foreach ($search_results as $group)
                                 <div class="col-sm-4 text-center">
-                                    <a href="{{ url('/users/' . $user->id) }}">
+                                    <a href="{{ url('/group/' . $group->id) }}">
                                         <div class="thumbnail">                                           
-                                            <h5>{{ $user->name }}</h5>
+                                            <h5>{{ $group->name }}</h5>
                                         </div>
                                     </a>
                                 </div>

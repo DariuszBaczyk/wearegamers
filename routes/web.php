@@ -23,7 +23,10 @@ Route::get('/search', 'SearchController@users');
 
 Route::resource('/users', 'UsersController');
 
-Route::get('/user-avatar/{id}/{size}', 'ImagesController@user_avatar');
+Route::resource('/groups', 'GroupsController');
+
+
+//Route::get('/user-avatar/{id}/{size}', 'ImagesController@user_avatar');
 
 Route::get('users/{user}/friends', 'FriendsController@index');
 Route::post('/friends/{friend}', 'FriendsController@add');
@@ -45,14 +48,6 @@ Route::patch('/notifications/{notification}', 'NotificationsController@update');
 //logowanie prze konto google
 Route::get('login/google', 'Auth\LoginController@redirectToProvider');
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

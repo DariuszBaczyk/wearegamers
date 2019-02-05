@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
     	$max_comments_per_post = 5;
     	$password = 'pass';*/
 
+        // ROLES
     	DB::table('roles')->insert([
     		'id' => 1,
     		'type' => 'admin',
@@ -44,6 +45,8 @@ class DatabaseSeeder extends Seeder
     		'type' => 'editor',
     	]);
 
+
+        //USERS
     	DB::table('users')->insert([
 		    		'name' => 'admin1',
 		    		'email' => 'admin1@wearegamers.co.pl',
@@ -67,5 +70,7 @@ class DatabaseSeeder extends Seeder
 		    		'role_id' => 1,
 		    		'password' => bcrypt('zaq123'),
 		]);
+
     }
 }
+

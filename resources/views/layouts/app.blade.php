@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'wearegamers') }}</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -24,13 +24,14 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'wearegamers') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <!-- SEARCH FORM-->
+                @if (Auth::id())
                 <form method="GET" action="{{ url('/search') }}" class="navbar-form navbar-left">
                         <div class="input-group">
                             <input type="text" name="q" class="form-control" placeholder="Szukaj...">
@@ -38,7 +39,8 @@
                                 <button type="submit" class="btn btn-default">Szukaj</button>
                             </span>
                         </div>
-                    </form>
+                </form>
+                @endif
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
@@ -51,6 +53,10 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                            @if (Auth::id())
+                            <li class="nav-link">Wiadomości</li>
+                            <li class="nav-link">Powiadomienia</li>
+                            @endif
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
@@ -66,11 +72,15 @@
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">         
+                                    <div class="dropdown-item"><a href="{{ url('/users/' . Auth::user()->id) }}">Mój profil</a></div>                              
+                                    <div class="dropdown-item">Edytuj dane</div>
+                                    <div class="dropdown-item">Grupy</div>
+                                    <div class="dropdown-item">Wydarzenia</div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        {{ __('Wyloguj') }}
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

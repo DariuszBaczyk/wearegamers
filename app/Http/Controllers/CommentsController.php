@@ -13,7 +13,7 @@ class CommentsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('comment_permission', ['except' => ['store']]);
+        //$this->middleware('comment_permission', ['except' => ['store']]);
     }
 
     /**
