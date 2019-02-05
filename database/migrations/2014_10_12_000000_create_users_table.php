@@ -23,7 +23,8 @@ class CreateUsersTable extends Migration
             $table->string('surname')->nullable();
             $table->text('sex')->nullable();
             $table->date('birthday')->nullable();
-            $table->tinyInteger('role_id')->unsigned();
+            //$table->tinyInteger('role_id')->unsigned();
+            $table->tinyInteger('role_id')->nullable();
             $table->string('about_me')->nullable();
             $table->string('privacy_status')->nullable();
             $table->string('phone')->nullable();

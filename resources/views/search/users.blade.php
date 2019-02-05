@@ -2,9 +2,10 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="col-md-10">
-            <div class="panel panel-default">
+            <div class="card">
+
                 <div class="panel-heading">Wyniki wyszukiwania użytkowników</div>
                 <div class="panel-body">
 

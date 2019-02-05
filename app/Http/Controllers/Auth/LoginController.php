@@ -51,12 +51,12 @@ class LoginController extends Controller
 
     public function handleProviderCallback()
     {
-        try {
-            
+        try {           
         
             $googleUser = Socialite::driver('google')->user();
-            $existUser = User::where('email',$googleUser->email)->first();
-            
+            $existUser = User::where('email', $googleUser->email)->first();    
+            //dd($googleUser);
+                
 
             if($existUser) {
                 Auth::loginUsingId($existUser->id);
@@ -68,10 +68,12 @@ class LoginController extends Controller
                 $user->email = $googleUser->email;
                 $user->google_id = $googleUser->id;
                 $user->password = md5(rand(1,10000));
+                //$user->role = 2;
                 $user->save();
                 Auth::loginUsingId($user->id);
             }
-            return redirect()->to('/home');
+
+            return redirect()->to('/');
         } 
         catch (Exception $e) {
             return 'error';

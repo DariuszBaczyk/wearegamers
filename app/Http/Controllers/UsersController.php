@@ -40,6 +40,7 @@ class UsersController extends Controller
                 ->with('comments.likes')
                 ->with('likes')
                 ->where('user_id', $id)
+                ->orderBy('created_at', 'desc')
                 ->paginate(10);
         //}
 
