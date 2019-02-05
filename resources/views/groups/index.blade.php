@@ -19,7 +19,7 @@
          
             @if ($groups->count() != 0)
                 @foreach ($groups as $group)
-                    <div>{{ $group->name }}</div>
+                    <div><a href="{{ url ('/groups/' . $group->id) }} ">{{ $group->name }}</a></div>
                     <div>{{ $group->about }}</div>
                     <div>{{ $group->owner_id}}</div>
                 @endforeach

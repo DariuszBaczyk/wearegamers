@@ -1,7 +1,7 @@
 <div class="col-md-10">
 	<div class="panel panel-default">
 		<div class="panel-heading">
-			<div>{{ $user->name }}</div>
+			<h1>{{ $user->name }}</h1>
 			@if ($user->id === Auth::id())
 				<a href="{{ url('/users/' . $user->id . '/edit') }}" class="pull-right">Edytuj</a>
 			@endif
