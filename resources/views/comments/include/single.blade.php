@@ -7,7 +7,10 @@
 
 <div id="comment_id{{ $comment->id }}" class="{{ $comment->trashed() ? 'trashed' : ''}}">
 	
-	<img src="{{ url('user-avatar/'. $comment->user->id. '/35') }}" alt="" class="img-responsive pull-left">
+
+	<img src="{{ asset('storage/users/' . $comment->user->id . '/avatars/' .  $comment->user->avatar) }}" alt="avatar" class="img-thumbnail" style="height:50px; "> 
+
+	
 	
 	<div style="padding-left: 10px; overflow: hidden;">
 		<a href="{{ url('/posts/' . $post->id . '#comment_id' . $comment->id) }}" class="text-muted pull-right"><small><span class="glyphicon glyphicon-time"></span> {{ $post->created_at }}</small></a>

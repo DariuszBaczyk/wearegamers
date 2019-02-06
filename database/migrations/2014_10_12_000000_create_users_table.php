@@ -29,7 +29,7 @@ class CreateUsersTable extends Migration
             $table->string('privacy_status')->nullable();
             $table->string('phone')->nullable();
             $table->string('google_id')->nullable();
-            $table->string('avatar')->nullable();
+            $table->string('avatar')->default('user.jpg');
             $table->string('steam_id')->nullable();
             $table->softDeletes();
             $table->rememberToken()->nullable();

@@ -71,11 +71,14 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="hidden" >
+                            <input type="file" class="form-control" name="avatar" value="{{ $user->avatar }}">
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Zarejestruj') }}
                                 </button>
                             </div>
                         </div>

@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\User;
 
 class Post extends Model
 {
@@ -37,6 +38,11 @@ class Post extends Model
     public function likes()
     {
         return $this->hasMany('App\Like');
+    }
+
+    public function group()
+    {
+        return $this->belongsTo('App\Group');
     }
 
 }

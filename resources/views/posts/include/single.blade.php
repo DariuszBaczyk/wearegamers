@@ -1,4 +1,6 @@
 <div>
+	<img src="{{ asset('storage/users/' . $post->user->id . '/avatars/' .  $post->user->avatar) }}" alt="avatar" class="img-thumbnail" style="height:75px; "> 
+
 	<div><a href="{{ url('/users/' . $post->user->id) }}">{{ $post->user->name }}</a></div>
 	<div>{{ $post->content }}</div>
 	<div><a href="{{ url('/posts/' . $post->id) }}"> {{ $post->created_at }} </a></div>
