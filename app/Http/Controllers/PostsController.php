@@ -37,6 +37,11 @@ class PostsController extends Controller
         return back();
     }
 
+    public function group_has_post($post_id)
+    {
+        return back();
+    }
+
     /**
      * Display the specified resource.
      *

@@ -8,6 +8,7 @@
             <div class="jumbotron">
                 <h1>{{ $group->name }}</h1>
                 <h2>{{ $group->about }}</h2>
+                <h5>Liczba członkow: </h5>
             </div>
             @include('posts.create')
         </div>
