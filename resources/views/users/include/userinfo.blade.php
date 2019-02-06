@@ -1,8 +1,10 @@
 <div class="col-md-10">
 	<div class="panel panel-default">
-		
-                <img src="{{ asset('storage/users/' . $user->id . '/avatars/' .  $user->avatar) }}" alt="avatar" class="img-thumbnail" style="height:200px;"> 
-           
+        <div class="jumbotron">
+
+            @if ($user->avatar != null)
+            <img src="{{ asset('storage/users/' . $user->id . '/avatars/' .  $user->avatar) }}" alt="avatar" class="img-thumbnail" style="height:200px;"> 
+            @endif
 
 			<h1>{{ $user->name }}</h1>
 			@if ($user->id === Auth::id())
@@ -51,6 +53,6 @@
 			 @endif
 
              <p><a href="{{ url('/users/' . $user->id . '/friends') }}">Znajomi</a> <span class="label label-default">{{ $user->friends()->count() }}</span></p>
-		
+		</div>
 	</div>
 </div>
