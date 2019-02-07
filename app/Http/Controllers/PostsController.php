@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Post;
 use App\User;
+use App\Group;
 
 class PostsController extends Controller
 {
@@ -34,11 +35,6 @@ class PostsController extends Controller
             'content' => $request->post_content,
         ]);
 
-        return back();
-    }
-
-    public function group_has_post($post_id)
-    {
         return back();
     }
 

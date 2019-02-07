@@ -74,9 +74,8 @@
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">         
                                     <div class="dropdown-item"><a href="{{ url('/users/' . Auth::user()->id) }}">Mój profil</a></div>                              
-                                    <div class="dropdown-item">Edytuj dane</div>
-                                    <div class="dropdown-item">Grupy</div>
-                                    <div class="dropdown-item">Wydarzenia</div>
+                                    <div class="dropdown-item"><a href="{{ url('/groups') }}">Grupy</a></div>
+                                    <div class="dropdown-item"><a href="{{ url('/events') }}">Wydarzenia</a></div>
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

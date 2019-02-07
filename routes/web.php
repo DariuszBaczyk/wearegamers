@@ -25,6 +25,7 @@ Route::resource('/users', 'UsersController');
 
 Route::resource('/groups', 'GroupsController');
 
+Route::resource('/events', 'EventsController');
 
 //Route::get('/user-avatar/{id}/{size}', 'ImagesController@user_avatar');
 

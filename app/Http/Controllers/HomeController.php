@@ -27,6 +27,7 @@ class HomeController extends Controller
     public function index()
 	{
 		$friends = Auth::user()->friends();
+		
 
 		$friends_ids_array = [];
 		$friends_ids_array[] = Auth::id();

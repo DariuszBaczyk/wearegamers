@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Group;
+use App\Post;
 
 class GroupsController extends Controller
 {
@@ -44,7 +45,7 @@ class GroupsController extends Controller
         $group->owner_id = Auth::id();
         $group->save();
 
-        return redirect('/groups')->with('success', 'Utworzono grupę.');
+        return redirect('/groups');
     }
 
     /**
@@ -55,6 +56,7 @@ class GroupsController extends Controller
      */
     public function show($id)
     {
+        //$post = Post::findOrFail($id);
         $group = Group::findOrFail($id);
         return view('groups.show')->with('group', $group);
     }
