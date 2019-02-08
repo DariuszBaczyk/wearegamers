@@ -1,13 +1,12 @@
-<div class="col-md-3">
+<div class="col-md-10">
 	<div class="panel panel-default">
-       
-
             @if ($user->avatar != null)
-            <img src="{{ asset('storage/users/' . $user->id . '/avatars/' .  $user->avatar) }}" alt="avatar" class="img-thumbnail" style="height:200px;"> 
+                <img src="{{ asset('storage/users/' . $user->id . '/avatars/' .  $user->avatar) }}" alt="avatar" class="img-thumbnail rounded-circle" style="height:200px;"> 
             @endif
 
 			<h1>{{ $user->name }}</h1>
-			@if ($user->id === Auth::id())
+			
+            @if ($user->id === Auth::id())
 				<a href="{{ url('/users/' . $user->id . '/edit') }}" class="pull-right">Edytuj</a>
 			@endif
 
@@ -19,9 +18,41 @@
 			</div>
 
 			<div>{{ $user->about_me }}</div>
+           
+            <div>{{ $user->region }}</div>
 
-			 @if (Auth::check() && $user->id !== Auth::id())		
-			     @if ( ! friendship($user->id)->exists && ! has_friend_invitation($user->id))
+            @if ($user->facebook_bio != null)
+                <a href="{{ $user->facebook_bio }}">Facebook</a>                
+            @endif
+            
+            @if ($user->instagram_bio != null)
+                <a href="{{ $user->instagram_bio }}">Instagram</a>
+            @endif
+
+            @if ($user->steam_bio != null)
+                <a href="{{ $user->steam_bio }}">Steam</a>
+            @endif
+
+            @if ($user->xboxlive_bio != null)
+                <a href="{{ $user->xboxlive_bio }}">Xboxlive</a>
+            @endif
+
+            @if ($user->gog_bio != null)
+                <a href="{{ $user->gog_bio }}">GOG</a>
+            @endif
+
+            @if ($user->battlenet_bio != null)
+                <a href="{{ $user->battlenet_bio }}">BattleNET</a>
+            @endif
+
+            @if ($user->origin_bio != null)
+                <a href="{{ $user->origin_bio }}">Origin</a>
+            @endif
+
+
+
+			@if (Auth::check() && $user->id !== Auth::id())		
+			    @if ( ! friendship($user->id)->exists && ! has_friend_invitation($user->id))
 
                     <form method="POST" action="{{ url('/friends/' . $user->id ) }}">
                         {{ csrf_field() }}
@@ -47,12 +78,10 @@
                         {{ method_field('DELETE') }}
                         <button class="btn btn-danger">Usuń ze znajomych</button>
                     </form> 
-
                 @endif
-			 
-			 @endif
+		    @endif
 
-             <p><a href="{{ url('/users/' . $user->id . '/friends') }}">Znajomi</a> <span class="label label-default">{{ $user->friends()->count() }}</span></p>
-		
+            <div><a href="{{ url('/users/' . $user->id . '/friends') }}">Znajomi </a>{{ $user->friends()->count() }}</div>
+           
 	</div>
 </div>

@@ -32,6 +32,16 @@ class CreateUsersTable extends Migration
             //$table->string('avatar')->default('user.jpg');
             $table->string('avatar')->nullable();
             $table->string('steam_id')->nullable();
+            $table->string('steam_bio')->nullable();
+            $table->string('facebook_bio')->nullable();
+            $table->string('instagram_bio')->nullable();
+            $table->string('xboxlive_bio')->nullable();
+            $table->string('gog_bio')->nullable();
+            $table->string('battlenet_bio')->nullable();
+            $table->string('origin_bio')->nullable();
+            $table->string('region')->nullable();
+            //$table->tinyInteger('is_banned')->default(0);
+
             $table->softDeletes();
             $table->rememberToken()->nullable();
             $table->timestamps();

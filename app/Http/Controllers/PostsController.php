@@ -10,6 +10,8 @@ use App\Group;
 
 class PostsController extends Controller
 {
+
+
     public function __construct()
     {
         //$this->middleware('post_permission', ['except' => ['store', 'show']]);
@@ -23,20 +25,24 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
+        /*$this->validate($request, [
             'post_content' => 'required|min:5',
         ], [
             'required' => 'Musisz wpisać jakąś treść',
             'min' => 'Treść musi mieć minimum :min znaków',
-        ]);
-
+        ]);*/
+        
         Post::create([
             'user_id' => Auth::id(),
             'content' => $request->post_content,
+            'group_id' => $request->group_id,
         ]);
 
+        //$this->group_id => $request->group_id,
+
         return back();
-    }
+       
+    }   
 
     /**
      * Display the specified resource.

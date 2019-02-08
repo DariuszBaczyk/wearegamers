@@ -5,20 +5,17 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-            <div class="jumbotron">
-                <h1>{{ $group->name }}</h1>
-                <h2>{{ $group->about }}</h2>
-                <h5>Liczba członkow: </h5>         
-                <?php 
-                    var_dump($group->id);
-                ?>      
-            </div>
-            @include('groups.include.create')
+        <div class="card">
+                <div class="card-header">              
             
-            <div>
-                @if($post->group_id == $group->id)
-                @include('posts.include.single')
-                @endif
+                    <h1>{{ $group->name }}</h1>
+                    <h2>{{ $group->about }}</h2>
+                    <h5>Liczba członkow: </h5>             
+                </div>
+
+                <div class="card-body">
+                    @include('groups.include.create')        
+                <div>             
             </div>
         </div>
     </div>

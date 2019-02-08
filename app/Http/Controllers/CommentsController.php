@@ -28,12 +28,12 @@ class CommentsController extends Controller
 
         $post_id_comment_content = 'post_' . $request->post_id .'_comment_content';
 
-        $this->validate($request, [
+        /*$this->validate($request, [
             $post_id_comment_content => 'required|min:5',
         ], [
             'required' => 'Musisz wpisać jakąś treść',
             'min' => 'Treść musi mieć minimum :min znaków',
-        ]);
+        ]);*/
 
         $comment = Comment::create([
             'post_id' => $request->post_id,

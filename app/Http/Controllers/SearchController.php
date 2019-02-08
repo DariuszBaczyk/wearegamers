@@ -16,11 +16,11 @@ class SearchController extends Controller
 		return view('search.users', compact('search_results', 'search_thing'));
 	}
 
-	public function groups()
+	/*public function groups()
 	{
 		$search_thing = Input::get('q');
 		$search_resoults = Group::where('name', 'like', "%" . $search_thing . '%')->paginate(10);
 
 		return view('search.groups', compact('search_resoults', 'search_thing'));
-	}
+	}*/
 }

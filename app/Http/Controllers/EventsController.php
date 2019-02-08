@@ -21,14 +21,17 @@ class EventsController extends Controller
 
     public function store(Request $request)
     {
-        $event = new Group;
+        $event = new Event;
         $event->name = $request->name;
         $event->about = $request->about;
         $event->private = $request->private;
+        $event->hour = $request->hour;
+        $event->date = $request->date;
+        $event->place = $request->place;
         $event->owner_id = Auth::id();
         $event->save();
 
-        return redirect('/events')->with('success', 'Utworzono grupę.');
+        return redirect('/events');
     }
 
     public function show($id)

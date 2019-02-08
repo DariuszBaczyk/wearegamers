@@ -91,6 +91,14 @@ class UsersController extends Controller
         $user->about_me = $request->about_me;
         $user->birthday = $request->birthday;
         $user->phone = $request->phone;
+        $user->region = $request->region;
+        $user->facebook_bio = $request->facebook_bio;
+        $user->instagram_bio = $request->instagram_bio;
+        $user->steam_bio = $request->steam_bio;
+        $user->gog_bio = $request->gog_bio;
+        $user->battlenet_bio = $request->battlenet_bio;
+        $user->xboxlive_bio = $request->xboxlive_bio;
+        $user->origin_bio = $request->origin_bio;
 
         if ($request->file('avatar')) {
             $user_avatar_path = 'public/users/' . $id . '/avatars';

@@ -36,7 +36,7 @@
                         <div class="input-group">
                             <input type="text" name="q" class="form-control" placeholder="Szukaj...">
                             <span class="input-group-btn">
-                                <button type="submit" class="btn btn-default">Szukaj</button>
+                                <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Szukaj</button>
                             </span>
                         </div>
                 </form>
