@@ -58,9 +58,9 @@
                 <div class="card-deck mb-3 text-center">
                     @foreach($events as $event)
                     <div class="col-sm-4 text-center">                          
-                        <div class="card mb-4 box-shadow">
-                            <div class="card-header">                
-                                <div>{{ $event->name }}</div>
+                        <div class="card mb-4 box-shadow">               
+                            <div class="card-header">
+                                <a href="{{ url ('/events/' . $event->id) }} ">{{ $event->name }}</a>
                             </div>
                             <div class="card-body">
                                 <div>{{ $event->about }}</div>

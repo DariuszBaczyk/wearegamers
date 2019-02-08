@@ -23,7 +23,7 @@
 				<!-- POSTY UŻYTKOWNIKA-->
 				@if ($posts->count() > 0)
      			    @foreach($posts as $post)
-						@if($post->group_id == null || $post->event_id == null)
+						@if($post->group_id == null && $post->event_id == null)
    			        		@include('posts.include.single')
 						@endif
 					@endforeach

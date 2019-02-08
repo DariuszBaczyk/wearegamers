@@ -1,4 +1,3 @@
-<?php var_dump($group->id)?>
 <form method="POST" action="{{ url('/posts') }}">
     {{ csrf_field() }}
 

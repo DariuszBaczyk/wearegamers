@@ -36,9 +36,8 @@ class PostsController extends Controller
             'user_id' => Auth::id(),
             'content' => $request->post_content,
             'group_id' => $request->group_id,
+            'event_id' => $request->event_id,
         ]);
-
-        //$this->group_id => $request->group_id,
 
         return back();
        
