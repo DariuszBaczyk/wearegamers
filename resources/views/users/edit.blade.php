@@ -123,21 +123,26 @@
                         <button type="submit" class="btn btn-primary ">Zapisz zmiany</button>
                     </form>
 
-                    <!--<hr>
+                    <hr>
                         <div><b>Zmiana hasła</b></div>
+
                         <form action="{{ url('/users/' . $user->id) }}" enctype="multipart/form-data" method="post">
-                        <div class="form-group">
-                            <label for="name">{{ __('Stare hasło: ') }}</label>
-                            <input type="password" class="form-control" name="password">
-                        </div>
-                        <div class="form-group">
-                            <label for="name">{{ __('Nowe hasło: ') }}</label>
-                            <input type="password" class="form-control" name="password">
-                        </div>
-                        <div class="form-group">
-                            <label for="name">{{ __('Powtórz hasło: ') }}</label>
-                            <input type="password" class="form-control" name="password">
-                        </div>-->
+                            <div class="form-group">
+                                <label for="name">{{ __('Stare hasło: ') }}</label>
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                            <div class="form-group">
+                                <label for="name">{{ __('Nowe hasło: ') }}</label>
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                            <div class="form-group">
+                                <label for="name">{{ __('Powtórz nowe hasło: ') }}</label>
+                                <input type="password" class="form-control" name="password">
+                            </div>
+                            <div class="form-group">
+                                <button tpye="submit" class="btn btn-default">Zmień hasło</button>
+                            </div>
+                        </form>
                 </div>
             </div>
         </div>

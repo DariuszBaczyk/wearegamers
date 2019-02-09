@@ -48,5 +48,6 @@ Route::patch('/notifications/{notification}', 'NotificationsController@update');
 Route::get('login/google', 'Auth\LoginController@redirectToProvider');
 Route::get('login/google/callback', 'Auth\LoginController@handleProviderCallback');
 
-
-
+//zmiana hasła
+Route::get('/changePassword','HomeController@showChangePasswordForm');
+Route::post('/changePassword','HomeController@changePassword')->name('changePassword');

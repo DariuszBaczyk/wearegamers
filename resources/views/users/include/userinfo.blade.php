@@ -8,6 +8,7 @@
 			
             @if ($user->id === Auth::id())
 				<a href="{{ url('/users/' . $user->id . '/edit') }}" class="pull-right">Edytuj</a>
+                <a href="{{ url('/changePassword') }}">Zmień hasło</a>
 			@endif
 
 			<div>{{ $user->email }}</div>

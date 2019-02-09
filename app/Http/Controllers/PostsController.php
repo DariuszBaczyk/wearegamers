@@ -34,12 +34,13 @@ class PostsController extends Controller
         
         Post::create([
             'user_id' => Auth::id(),
-            'content' => $request->post_content,
-            'group_id' => $request->group_id,
+            'content' => $request->post_content,            
             'event_id' => $request->event_id,
+            'group_id' => $request->group_id,
         ]);
 
         return back();
+       
        
     }   
 

@@ -18,7 +18,7 @@ class Post extends Model
     protected $dates = ['deleted_at'];
 
     protected $fillable = [
-    	'user_id', 'content', 'group_id',
+    	'user_id', 'content', 'group_id', 'event_id',
     ];
 
     public function user()
@@ -45,4 +45,8 @@ class Post extends Model
         return $this->belongsTo('App\Group');
     }
 
+    public function event()
+    {
+        return $this->belongsTo('App\Event');
+    }
 }
